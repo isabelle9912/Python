@@ -1,31 +1,31 @@
-#Dadas as variáveis x = 2, y = 5, z = 9, nome = “José”, e flag = falso, indique os resultados das expressões# 
+# Dadas as variáveis x = 2, y = 5, z = 9, nome = “José”, e flag = falso, indique os resultados das expressões#
 
-#x == y#
+# x == y#
 False
 
-#not (x == y)#
+# not (x == y)#
 True
 
-#x + 5 > z#
+# x + 5 > z#
 False
-#nome == "jose"#
+# nome == "jose"#
 
-#nome == "Jose" )#
+# nome == "Jose" )#
 
-#nome == "José"#
+# nome == "José"#
 
-#(x + y > z) and (nome == "Jose")#
+# (x + y > z) and (nome == "Jose")#
 
-#flag ou (x >= y)#
+# flag ou (x >= y)#
 
-#flag e ((x >= y) or True)#
+# flag e ((x >= y) or True)#
 
-#(not flag) and ((z/y + 1) = x)#
+# (not flag) and ((z/y + 1) = x)#
 
-#((z ** 0.5) > 3 and True) or False#
+# ((z ** 0.5) > 3 and True) or False#
 
-#(nome == "José") and ( (z ** 0.5) < (z + 10) )#
+# (nome == "José") and ( (z ** 0.5) < (z + 10) )#
 
-#True ^ False#
+# True ^ False#
 
-#False ^ False #
+# False ^ False #

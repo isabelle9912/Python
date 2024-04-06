@@ -1,14 +1,14 @@
-#Ler um número inteiro e informar se este valor é maior #que 10.
+# Ler um número inteiro e informar se este valor é maior #que 10.
+
 
 def is_maior(a: int):
-    if(a > 10):
-        return 'é maior'
+    if a > 10:
+        return "é maior"
     else:
-        return 'não é maior'        
+        return "não é maior"
 
 
-
-num = int(input('Digite um número '))
+num = int(input("Digite um número "))
 
 s = is_maior(num)
-print(f'o número {num} {s}')
+print(f"o número {num} {s}")
