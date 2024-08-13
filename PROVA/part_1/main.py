@@ -64,17 +64,19 @@ def singleplayer():
         mostrar_placar()
 
 def selecionar_modo_de_jogo():
+    global modo_de_jogo
     is_dois_jogadores = input('Modo multiplayer: [yes/no]: ').lower()
     while is_dois_jogadores not in ['yes', 'no']:
         is_dois_jogadores = input('Resposta inválida. Modo multiplayer: [yes/no]: ').lower()
     limpar_terminal()
     if is_dois_jogadores == 'yes':
         modo_de_jogo = 'multiplayer'
-        print(modo_de_jogo)
         obter_nomes()
         multiplayer()
     else:
         modo_de_jogo = 'singleplayer'
+        jogadores[0] = input('Digite o nome do jogador: ')
+        limpar_terminal()
         singleplayer()
 
 def jogar_outra_partida():
@@ -83,22 +85,19 @@ def jogar_outra_partida():
         is_continuar_jogando = input('Resposta inválida. Quer continuar? [yes/no]: ').lower()
     
     limpar_terminal()
-    
-    if is_continuar_jogando == 'yes':
-        if modo_de_jogo == 'multiplayer':
-           multiplayer()
-        else:
-           singleplayer()
-    else: return False
-
+    return is_continuar_jogando == 'yes'
 
 def main():
     limpar_terminal()
     print('PEDRA PAPEL TESOURA')
     selecionar_modo_de_jogo()
-    encerrar: bool = True
-    while encerrar:
-        encerrar = jogar_outra_partida()
+    while True:
+        if modo_de_jogo == 'multiplayer':
+            multiplayer()
+        else:
+            singleplayer()
+        if not jogar_outra_partida():
+            break
 
 if __name__ == '__main__':
     main()
