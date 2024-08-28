@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prog-1 - Prova Unid-1 27-08-2024 2-etapa</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="prova-unid-1">Prova Unid-1</h2>
+<p><strong>2ª etapa, 27/08/2024</strong><br>
+Ling. de Programação 1</p>
+<ul>
+<li>Cada questão deve ser respondida em um arquivo .py diferente. No cabeçalho de cada arquivo, NÃO esqueça de: colocar seu nome completo + o número da questão, Quest-1 / Quest-2 / …</li>
+<li>Tenha em mente! Sempre que você facilita a correção de sua prova, com um código legível, bem documentado, modularizado. Você na verdade está se ajudando.</li>
+<li>Você tera até 22h00 de 27/08, para enviar todos os o arquivos de resposta compactados .zip para o Classroom.</li>
+<li>A prova unid-1 está dividida em 2-etapas: (1-etapa) 13/08 vale 5 + (2-etapa) 27/08 vale 5. Caso desista da 1-etapa, a 2-etapa passa a valer 10.</li>
+</ul>
+<hr>
+<p><font color="blue"><strong>Quest-1 (vale 2,5).</strong></font> Implemente a função de entrada (input) definida a seguir.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">from</span> unicodedata <span class="token keyword">import</span> normalize
+
+<span class="token keyword">def</span> <span class="token function">remover_acentos</span><span class="token punctuation">(</span>s<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">""" Remove os acentos de uma str. P.ex. Não =&gt; Nao (sem acento) """</span>
+	<span class="token keyword">return</span> normalize<span class="token punctuation">(</span><span class="token string">'NFKD'</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'ASCII'</span><span class="token punctuation">,</span> <span class="token string">'ignore'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'ASCII'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">input_opcoes</span><span class="token punctuation">(</span>msg<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token operator">*</span>opcoes<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Exibe uma mensagem e uma lista de opções para o usuário escolher.
+    É case insensitive, então, não importa se o usuário digitar letras maiúsculas ou minúsculas.
+
+    Args:
+        msg (str): A mensagem a ser exibida ao usuário.
+        *opcoes (str):
+	        Um número variável de opções que o usuário pode escolher. Similar a uma list.
+            Em cada opção passada, a letra maiúscula se refere a forma curta da opção.
+            P.ex. a opção 'Sim' possui como forma curta 'S'. A opção 'Não', possui como forma curta 'N'.
+
+    Returns:
+        str: A opção escolhida pelo usuário.
+
+    Exemplo:
+        &gt;&gt;&gt; escolha = input_opcoes('Deseja continuar', 'S', 'N')
+        Deseja continuar (S / N)? s
+        &gt;&gt;&gt; print(f"Você escolheu: {escolha}")
+        Você escolheu: S  # O retorno deve ser igual as opções, incluindo o CASE (maiúsculas e minúsculas)
+        # O usuário digitou 's' minúsculo, mas a função retornou 'S' maiúsculo, idêntico as opções passadas como argumento da função.
+
+        &gt;&gt;&gt; escolha = input_opcoes('Deseja continuar', 's', 'n')  # letras minúsculas
+        Deseja continuar (s / n)? s
+        &gt;&gt;&gt; print(f"Você escolheu: {escolha}")
+        Você escolheu: s  # O retorno deve ser igual as opções, incluindo o CASE (maiúsculas e minúsculas)
+	    # O usuário digitou 's' minúsculo, a função retornou 's' minúscolo, idêntico aos argumentos da função.
+
+        &gt;&gt;&gt; escolha = input_opcoes('Deseja continuar', 'Sim', 'Não')
+        Deseja continuar (Sim / Não)? nao
+        &gt;&gt;&gt; print(f"Você escolheu: {escolha}")
+        Você escolheu: Não  # Mais uma vez, 'Não' conforme os argumentos, com 'S' maiúsculo.
+        
+        &gt;&gt;&gt; escolha = input_opcoes('Deseja continuar', 'Sim', 'Não')
+        Deseja continuar (Sim / Não)? S
+        # Em cada opção passada como argumento, a letra maiúscula se refere a forma curta da opção.
+        # Então a opção 'Sim' possui como forma curta 'S'. A opção 'Não', possui como forma curta 'N'.
+        &gt;&gt;&gt; print(f"Você escolheu: {escolha}")
+        Você escolheu: Sim
+
+        &gt;&gt;&gt; escolha = input_opcoes('Deseja continuar', 'Sim', 'Não')
+        Deseja continuar (Sim / Não)? n
+        &gt;&gt;&gt; print(f"Você escolheu: {escolha}")
+        Você escolheu: Não
+    """</span>
+    <span class="token keyword">pass</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    escolha <span class="token operator">=</span> input_opcoes<span class="token punctuation">(</span><span class="token string">'\n1. Deseja continuar'</span><span class="token punctuation">,</span> <span class="token string">'S'</span><span class="token punctuation">,</span> <span class="token string">'N'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Você escolheu: {escolha}"</span><span class="token punctuation">)</span>
+
+    escolha <span class="token operator">=</span> input_opcoes<span class="token punctuation">(</span><span class="token string">'\n2. Deseja continuar'</span><span class="token punctuation">,</span> <span class="token string">'s'</span><span class="token punctuation">,</span> <span class="token string">'n'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Você escolheu: {escolha}"</span><span class="token punctuation">)</span>
+
+    escolha <span class="token operator">=</span> input_opcoes<span class="token punctuation">(</span><span class="token string">'\n3. Deseja continuar'</span><span class="token punctuation">,</span> <span class="token string">'Sim'</span><span class="token punctuation">,</span> <span class="token string">'Não'</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">"Você escolheu: {escolha}"</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><font color="blue"><strong>Quest-2 (vale 2,5).</strong></font> Com base na versão 5 do Jogo Pedra Papel Tesoura (versão que possui placar no final). Adicione a possibilidade de jogar com 3 jogadores.</p>
+<ul>
+<li>Regra para definir o vencedor de cada partida.
+<ul>
+<li>(round-1) jogador-1 versus jogador-2. O vencedor desse round irá jogar com o jogador-3, conforme o exemplo a seguir.</li>
+<li>(round-2) Vencedor do round-1 vs jogador-3. O vencedor desse round é o vencedor da partida.</li>
+<li>Caso o round-1 dê empate. Ambos os jogadores irão para o round-2, jogar com o jogador-3. DICA: se deu empate, significa dizer que jog-1 e jog-2 escolheram as mesmas armas, então, qualquer um deles pode ir para o round-2.</li>
+<li>Caso dê empate no round-2. Nínguem venceu a partida!</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-python"><code class="prism  language-python"><span class="token triple-quoted-string string">"""
+Exemplo de Execução:
+---------------------
+$ python main.py
+============================================================
+Jogo Pedra-Papel-Tesoura
+
+Digite o nome dos jogadores
+Jogador-1? Carlos
+Jogador-2? Pedro
+Jogador-3? Computador
+
+Número de partidas? 3
+
+--- Partida 1 de 4 ----------------------------------------------------------
+Jogador-1 Carlos escolheu....: PAPEL
+Jogador-2 Pedro .............: TESOURA
+Jogador-3 Computador-1 ......: PAPEL
+Carlos (PAPEL)   vs Pedro        (TESOURA). Tesoura corta Papel. Pedro venceu!
+Pedro  (TESOURA) vs Computador-1 (PAPEL)  . Tesoura corta Papel. Pedro venceu!
+
+Placar:
+Carlos .....: 0
+Pedro ......: 1 !! Vencedor da partida !!
+Computador-1: 0
+
+--- Próxima partida (S/n)? S
+
+--- Partida 2 de 4 ------------------------------------------------------------
+Jogador-1 Carlos escolheu....: PEDRA
+Jogador-2 Pedro .............: TESOURA
+Jogador-3 Computador-1 ......: PAPEL
+Carlos (PEDRA) vs Pedro        (TESOURA). Pedra quebra Tesoura. Carlos venceu!
+Carlos (PEDRA) vs Computador-1 (PAPEL)  . Papel embrulha Pedra. Computador-1 venceu!
+
+Placar:
+Carlos .....: 0
+Pedro ......: 1 !! Vencedor da partida !!
+Computador-1: 0
+
+--- Próxima partida (S/n)? S
+
+--- Partida 3 de 4 ------------------------------------------------------------
+Jogador-1 Carlos escolheu....: TESOURA
+Jogador-2 Pedro .............: TESOURA
+Jogador-3 Computador-1 ......: PAPEL
+Carlos      (TESOURA) vs Pedro        (TESOURA). Empate!
+2-jogadores (TESOURA) vs Computador-1 (PAPEL)  . Papel corta Tesoura. 2-jogadores venceu!
+
+Placar:
+Carlos .....: 1 !! Vencedor da partida !!
+Pedro ......: 2 !! Vencedor da partida !!
+Computador-1: 0
+
+--- Próxima partida (S/n)? S
+
+--- Partida 4 de 4 ------------------------------------------------------------
+Jogador-1 Carlos escolheu....: PAPEL
+Jogador-2 Pedro .............: PAPEL
+Jogador-3 Computador-1 ......: PAPEL
+Carlos      (PAPEL) vs Pedro        (PAPEL). Empate!
+2-jogadores (PAPEL) vs Computador-1 (PAPEL). Empate!
+
+Placar: !! Empate !!
+Carlos .....: 1
+Pedro ......: 2
+Computador-1: 0
+
+--- Próxima partida (S/n)? S
+
+--- Placar Final, 4 partidas --------------------------------------------------
+Carlos ........: 1
+Pedro .........: 2 !! É o vencedor !!
+Computador-1 ..: 0
+Núm. de empates: 1
+
+Fim de jogo
+============================================================
+"""</span>
+</code></pre>
+<hr>
+<p><font color="blue"><strong>Quest-3 (vale 2,5).</strong></font> Implemente as funções de leitura / print para Quest-2 de forma que: a saída seja idêntica ao exemplo. Observe os espaçamentos, na forma de coluna, alinhados de acordo com o tamanho da maior string etc. Caso não tenha conseguido resolver Quest-2, não tem problema, basta escrever as funções de print (nesta questão, você será avaliado apenas pelas funções de print / leitura). DICA: sugestões de nomes para as funções para facilitar a correção.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">def</span> <span class="token function">ler_armas</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+	<span class="token keyword">pass</span>
+
+<span class="token keyword">def</span> <span class="token function">print_result_partida</span><span class="token punctuation">(</span>
+	nome_jog_dct<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	armas_dct<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	result_rounds_lst<span class="token punctuation">:</span> <span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+	result_partida<span class="token punctuation">:</span> <span class="token builtin">dict</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+	<span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+	<span class="token keyword">pass</span>
+
+<span class="token keyword">def</span> <span class="token function">print_placar_final</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+	<span class="token keyword">pass</span>	
+</code></pre>
+<hr>
+<p><font color="blue"><strong>Quest-4 (vale 2,5).</strong></font> Considerando o jogo Campo Minado de tabuleiro de tamanho 5x5. Implemente as funções que adicione as seguintes funcionalidades ao jogo:</p>
+<ul>
+<li>Definir o número de partidas ao iniciar o jogo.</li>
+<li>Definir o nome do jogador.</li>
+<li>Imprimir o placar parcial ao termino de cada partida.</li>
+<li>Solicitar continuação para próxima partida. Opções de resposta (S / N). Caso digite uma opção inválida, solicitar  que o usuário tente novamente.</li>
+<li>Imprimir o placar final.<br>
+Funcionalidades idênticas ao Jogo Pedra-Papel-Tesoura, ver exemplo na Quest-2.</li>
+</ul>
+</div>
+</body>
+
+</html>

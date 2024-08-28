@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prog-1 - Prova Unid-1 13-08-2024 1-etapa</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h2 id="prova-unid-1">Prova Unid-1</h2>
+<p><strong>1ª etapa, 13/08/2024</strong><br>
+Ling. de Programação 1</p>
+<ul>
+<li>Cada questão deve ser respondida em um arquivo .py diferente. No cabeçalho de cada arquivo, NÃO esqueça de: colocar seu nome completo + o número da questão, Quest-1 / Quest-2 / …</li>
+<li>Tenha em mente! Sempre que você facilita a correção de sua prova, com um código legível, bem documentado, modularizado. Você na verdade está se ajudando.</li>
+<li>Você tera até 22h00 de 13/08, para enviar o arquivo .7z com as respostas para o Classroom.</li>
+<li>A prova unid-1 está dividida em 2-etapas: (1-etapa) 13/08 vale 5 + (2-etapa) 20/08 vale 5. Caso desista da 1-etapa, a 2-etapa passa a valer 10.</li>
+</ul>
+<hr>
+<p><font color="blue"><strong>Quest-1 (vale 2,5).</strong></font> Implemente a função de entrada (input) definida a seguir.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">def</span> <span class="token function">input_int_com_alert_max</span><span class="token punctuation">(</span>msg<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">min</span><span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">,</span> alert_max<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">|</span> <span class="token boolean">None</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Solicita ao usuário a entrada de um número inteiro dentro de um intervalo especificado e dispara um alerta (um print) se o valor estiver acima do limite (alert_max). Após o alerta, o usuário pode optar por continuar com o valor acima do limite ou digitar um novo valor.
+    OBS. Caso alert_max=None, não há valor máximo, o mesmo é válido para min. min=None, não há valor mínimo.
+
+    Args:
+        msg (str): Mensagem a ser exibida ao usuário para solicitar a entrada do número.
+        min (int | None): Valor mínimo permitido para a entrada. Caso min=None, NÃO há valor mínimo.
+        alert_max (int | None): Valor máximo, caso valor digitado esteja acima do limite, um alerta é disparado (um print). Caso max=None, NÃO há valor máximo.
+
+    Returns:
+        int: O número inteiro digitado pelo usuário.
+
+    Exemplo:
+        &gt;&gt;&gt; input_int_com_alert_valores_acima_max("Digite o núm. de partidas: ", min=1, alert_max=10)
+        Digite o núm. de partidas: 5
+        5  # função retorna 5, um INT fornecido pelo usuário. OBS. não é uma string.
+
+        &gt;&gt;&gt; input_int_com_alert_valores_acima_max("Digite o núm. de partidas: ", min=1, alert_max=10)
+        Digite o núm. de partidas: 13
+        Alerta. Valor acima do limite máximo 10. Continuar assim mesmo (s/n)? n
+        Digite o núm. de partidas: 8
+        8  # função retorna 8
+
+        &gt;&gt;&gt; input_int_com_alert_valores_acima_max("Digite o núm. de partidas: ", min=1, alert_max=10)
+        Digite o núm. de partidas: carlos
+        Valor inválido! Tente novamente.
+        Digite o núm. de partidas: 15
+        Alerta. Valor acima do limite máximo 10. Continuar assim mesmo (s/n)? s
+        15  # função retorna 15
+
+        &gt;&gt;&gt; input_int_com_alert_valores_acima_max("Digite o núm. de partidas: ", min=1, alert_max=10)
+        Digite o núm. de partidas: 0
+        Erro: Valor deve estar entre 1 e 10. Tente novamente.
+        Digite o núm. de partidas: 11
+        Alerta. Valor acima do limite máximo 10. Continuar assim mesmo (s/n)? Carlos
+        Opção inválida! Tente novamente.
+        Alerta. Valor acima do limite máximo 10. Continuar assim mesmo (s/n)? s
+        Digite o núm. de partidas: 7
+        7  # função retorna 7
+        
+        &gt;&gt;&gt; input_int_com_alert_valores_acima_max("Digite o núm. de partidas: ", min=1, alert_max=None)
+        Digite o núm. de partidas: 13
+        13  # returno da função
+
+        &gt;&gt;&gt; input_int_com_alert_valores_acima_max("Digite o núm. de partidas: ", min=None, alert_max=None)
+        Digite o núm. de partidas: -10
+        -10  # -10 número negativo, os args não especificam valor mínimo nem máximo.
+    """</span>
+    <span class="token keyword">pass</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> input_int_com_alert_max<span class="token punctuation">(</span><span class="token string">'\n1. Digite o número de partidas? '</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'Número digitado: {n}'</span><span class="token punctuation">)</span>
+
+    n <span class="token operator">=</span> input_int_com_alert_max<span class="token punctuation">(</span><span class="token string">'\n2. Digite o número de partidas? '</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> alert_max<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'Número digitado: {n}'</span><span class="token punctuation">)</span>
+
+    n <span class="token operator">=</span> input_int_com_alert_max<span class="token punctuation">(</span><span class="token string">'\n3. Digite o número de partidas? '</span><span class="token punctuation">,</span> <span class="token builtin">min</span><span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> alert_max<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>f<span class="token string">'Número digitado: {n}'</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<p><font color="blue"><strong>Quest-2 (vale 2,5).</strong></font> Com base na versão 5 do Jogo Pedra Papel Tesoura (versão que possui placar no final). Adicione os níveis de dificuldade easy (fácil) e extreme-hard (extremamente difícil, no caso talvez impossível). No nível easy, o computador perde 70% das vezes. No extreme-hard, ele nunca perde (no máximo empate). Adicione ao placar final, o nível de dificuldade escolhido, e a % que cada jogador ganhou.<br>
+– Sugestão: o computador deve jogar depois de você. Com base na sua arma ele irá escolher a dele. Se for modo easy ele perde 70% das vezes de propósito. Se for hard, ele nunca perde (talvez empate).</p>
+<hr>
+<p><font color="blue"><strong>Quest-3 (vale 2,5).</strong></font> Continuação da questão anterior. Se ao digitar o nome do jogador, o usuário informar “computador” (case insensitive). Então os dois jogadores são do tipo computador. É o computador jogando contra ele mesmo. OBS. se o modo easy foi implementado corretamente, ao final de 1000 partidas, computador vs computador, o jogador-2 deve ter perdido ou empatado 70% das partidas.<br>
+– OBS. está questão NÃO é obrigatoriamente uma continuação de Quest-2. MAS, se fizer terá como validar se os níveis de dificuldade foram implementados corretamente. Se preferir, pode implementar Quest-3 a partir do código original de Pedra Papel Tesoura (versão 5).</p>
+<hr>
+<p><font color="blue"><strong>Quest-4 (vale 2,5).</strong></font> Está questão NÃO é continuação das anteriores. Por simplificação, adote a versão 5 original do jogo Pedra Papel Tesoura. Entretanto,<br>
+– A partir de agora o jogo possui dois times, “time-1” e “time-2”. E cada time, possui dois jogadores, “jogador-1” e “jogador-2”. Um total de 4 jogadores, os quais podem ser humanos ou máquinas (computador).<br>
+– É o usuário que decide se o jogador é um humano ou o computador. Se ele digitar um nome qualquer, o jogador é humano, se digitar a palavra “computador” o jogador será o computador. Inclusive, os 4 jogadores podem ser o computador.<br>
+– Ao final, o placar deve exibir além da pontuação dos jogadores, o time vencedor e sua respectiva pontuação. NÃO há mais jogador vencedor, agora é time vencedor.</p>
+</div>
+</body>
+
+</html>
